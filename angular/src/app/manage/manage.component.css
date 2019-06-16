@@ -1,0 +1,11 @@
+.manage_left{
+    float: left;
+    height: 90%;
+    border: 1px solid #cccccc
+}
+.manage_right{
+    float: left;
+    height: 90%;
+    width: 83%;
+    border: 1px solid #cccccc
+}

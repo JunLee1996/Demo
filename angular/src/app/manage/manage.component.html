@@ -1,0 +1,35 @@
+<div class="manage_left" style="width: 17%;">
+  <button nz-button [nzType]="'primary'" (click)="toggleCollapsed()" style="margin-bottom: 10px;">
+    <i nz-icon [type]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
+  </button>
+  <ul nz-menu [nzMode]="'inline'" nzTheme="dark" [nzInlineCollapsed]="isCollapsed">
+    <div *ngFor="let a of menu">
+    <li *ngIf="a.menus.length===0" nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'Navigation One' : ''" (click)="onClick(a)">
+      <span title>
+        <i nz-icon type="mail"></i>
+        <span>{{a.content}}</span>
+      </span>
+    </li>
+    <li *ngIf="a.menus.length!==0" nz-submenu>
+      <span title>
+        <i nz-icon type="appstore"></i>
+        <span>{{a.content}}</span>
+      </span>
+      <ul>
+        <div *ngFor="let m of a.menus">
+        <li  *ngIf="m.menus.length===0" (click)="onClick(m)" nz-menu-item>{{m.content}}</li>
+        <li *ngIf="m.menus.length!==0" (click)="onClick(m)" nz-submenu>
+          <span title>{{m.content}}</span>
+          <ul>
+            <li *ngFor="let n of m.menus" (click)="onClick(n)" nz-menu-item>{{n.content}}</li>
+          </ul>
+        </li>
+      </div>
+      </ul>
+    </li>
+  </div>
+  </ul>
+</div>
+<div class="manage_right">
+    <router-outlet></router-outlet>
+</div>
