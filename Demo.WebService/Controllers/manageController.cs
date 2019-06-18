@@ -6,7 +6,6 @@ using Demo.Data.menu;
 using Demo.Data.models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 
 namespace Demo.WebService.Controllers
 {
